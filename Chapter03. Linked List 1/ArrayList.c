@@ -31,3 +31,14 @@ int LFirst(List *plist, LData *pdata) {
     *pdata = plist->arr[0];
     return TRUE;
 }
+
+//  [두 번째 이후 데이터 참조 기능]
+int LNext(List *plist, LData *pdata) {
+    if(pdata->curPosition == (plist->numOfData)-1 {
+        puts("데이터에 끝에 도달하여 탐색을 중단합니다.");
+        return false;
+    }
+    (plist->curPosition)++;
+    *pdata = plist->arr[plist->curPosition];
+    return TRUE;
+}
