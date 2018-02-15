@@ -20,3 +20,14 @@ void LInsert(List *plist, LData data) {
     //  저장된 데이터의 수 증가
     (plist->numOfData)++;
 }
+
+//  [시작 데이터 참조 기능]
+int LFirst(List *plist, LData *pdata) {
+    if(plist->numOfData == 0) {
+        puts("저장된 데이터가 존재하지 않습니다.");
+        return FALSE;
+    }
+    plist->curPosition = 0;
+    *pdata = plist->arr[0];
+    return TRUE;
+}
