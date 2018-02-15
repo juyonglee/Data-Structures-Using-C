@@ -19,7 +19,7 @@ typedef struct __ArrayList {
     int curPosition;
 } ArrayList
 
-typedef ArrayList list;
+typedef ArrayList List;
 
 //  초기화 기능
 void ListInit(List *plist);
