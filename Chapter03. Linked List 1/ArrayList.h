@@ -17,7 +17,7 @@ typedef struct __ArrayList {
     int numOfData;
     //  데이터 참조위치를 기록
     int curPosition;
-} ArrayList
+} ArrayList;
 
 typedef ArrayList List;
 
