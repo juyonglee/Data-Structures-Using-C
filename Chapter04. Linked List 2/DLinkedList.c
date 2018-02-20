@@ -9,3 +9,15 @@ void ListInit(List* plist) {
     plist->comp = NULL;
     plist->numOfData =0;
 }
+
+//  데이터 삽입 기능
+void LInsert(List *plist, LData data) {
+    //  정렬의 기준이 마련되지 않은 경우
+    if(plist->comp == NULL) {
+        //  머리에 노드를 추가
+        FInsert(plist, data);
+    } else {
+        //  정렬 기준에 따라 노드를 추가
+        SInsert(plist, data);
+    }
+}
