@@ -53,3 +53,17 @@ int LFirst(List* plist, LData *pdata) {
     //  데이터 반환 성공
     return TRUE;
 }
+
+//  두 번째 이후 데이터 참조 기능
+int LNext(List* plist, LData *pdata) {
+    //  더미 노드가 NULL을 가리키는 경우
+    if(plist->cur == NULL)
+        return FALSE;
+    //  cur이 가리키던 것을 before가 가리킴
+    plist->before = plist->cur;
+    //  cur은 그 다움 노드를 가리킴
+    plist->cur = plist->cur->next;
+    //  cur이 가리키는 노드의 데이터 전달
+    *pdata = plist->cur->data;
+    return TRUE;
+}
