@@ -22,6 +22,7 @@ void LInsert(List *plist, LData data) {
     }
 }
 
+//  정렬 기준이 없는 경우의 데이터 삽입 기능
 void FInsert(List* plist, LData data) {
     //  새로운 노드 생성
     Node *newNode = (Node*) malloc(sizeof(Node));
@@ -33,4 +34,22 @@ void FInsert(List* plist, LData data) {
     plist->head->next = newNode;
     //  저장된 노드의 수를 하나 증가
     (plist->numOfData)++;
+}
+
+//  첫 데이터 참조 기능
+int LFirst(List* plist, LData *pdata) {
+    //  더미 노드가 NULL을 가리키는 경우
+    if(plist->head->next==NULL){
+        puts("데이터가 존재하지 않습니다.");
+        //  반환할 데이터가 존재하지 않는다
+        return FALSE;
+    }
+    //  before는 더미 노드를 가르킨다
+    plist->before = plist->head;
+    //  cur은 첫 번째 노드를 가르킨다
+    plist->cur = plist->head->next;
+    //  첫 번째 노드의 데이터를 전달
+    *pdata = plist->head->next->data;
+    //  데이터 반환 성공
+    return TRUE;
 }
