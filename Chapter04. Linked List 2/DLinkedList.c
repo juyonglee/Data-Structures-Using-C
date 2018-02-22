@@ -85,3 +85,9 @@ LData LRemove(List *plist) {
     //  삭제된 노드의 데이터 반환
     return rData;
 }
+
+//  저장된 데이터의 개수 반환 기능
+int LCount(List* plist) {
+    return plist->numOfData;
+}
+
