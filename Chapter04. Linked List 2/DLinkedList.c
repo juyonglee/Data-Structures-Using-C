@@ -67,3 +67,21 @@ int LNext(List* plist, LData *pdata) {
     *pdata = plist->cur->data;
     return TRUE;
 }
+
+//  참조한 데이터 삭제 기능
+LData LRemove(List *plist) {
+    //  삭제할 노드의 주소 값을 rPos에 저장
+    Node* rPos = plist->cur;
+    //  삭제할 노드의 데이터를 rData에 저장
+    LData rData = rPos->data;
+    //  삭제할 노드를 리스트에서 제거
+    plist->before->next = plist->cur->next;
+    //  cur이 가리키는 위치를 재조정
+    plist->cur = plist->before;
+    //  리스트에서 제거된 노드 소멸
+    free(rPos);
+    //  저장된 데이터의 수 하나 감소
+    (plist->numOfData)--;
+    //  삭제된 노드의 데이터 반환
+    return rData;
+}
