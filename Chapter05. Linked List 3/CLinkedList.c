@@ -31,3 +31,22 @@ void LInsertFront(List* plist, Data data) {
     }
     (plist->numOfData)++;
 }
+
+//  새로운 노드를 꼬리에 추가하는 기능
+void LInsert(List* plist, Data data) {
+    Node* newNode = (Node*) malloc(sizeof(Node));
+    newNode->data = data;
+    if(plist->tail == NULL) {
+        plist->tail = newNode;
+        newNode->next = newNode;
+    } else {
+        //  처음을 가르킨다
+        // plist->tail->next
+        newNode->next = plist->tail->next;
+        plist->tail->next = newNode;
+        //  [LInsetFront 함수와 유일한 차이]
+        //  꼬리에 추가하기 때문에 tail을 이동시켜줘야 한다.
+        plist->tail = newNode;
+    }
+    (plist->numOfData)++;
+}
