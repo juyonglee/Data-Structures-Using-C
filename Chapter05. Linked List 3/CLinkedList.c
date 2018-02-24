@@ -50,3 +50,17 @@ void LInsert(List* plist, Data data) {
     }
     (plist->numOfData)++;
 }
+
+//  데이터 조회 기능
+int LFirst(List* plist, Data* pdata) {
+    //  저장된 노드가 없는 경우
+    if(plist->tail == NULL)
+        return FALSE;
+    //  before가 꼬리를 가리킨다.
+    plist->before = plist->tail;
+    //  cur이 머리를 가리킨다.
+    plist->cur = plist->tail->next;
+    //  cur이 가리키는 노드의 데이터 반환 (cur이 시작 노드를 의미)
+    *pdata = plist->cur->data;
+    return TRUE;
+}
