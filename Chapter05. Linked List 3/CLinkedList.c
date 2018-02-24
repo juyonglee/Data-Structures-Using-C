@@ -64,3 +64,17 @@ int LFirst(List* plist, Data* pdata) {
     *pdata = plist->cur->data;
     return TRUE;
 }
+
+//  두 번째 이후 데이터 참조 기능
+int LNext(List* plist, Data* pdata) {
+    //  저장된 노드가 없는 경우
+    if(plist->cur->next == NULL)
+        return FALSE;
+    //  before가 다음 노드를 가리키게 한다.
+    plist->before = plist->cur;
+    //  cur이 다음 노드를 가리키게 한다.
+    plist->cur = plist->cur->next;
+    //  cur이 가리키는 노드의 데이터 반환
+    *pdata = plist->cur->data;
+    return TRUE;
+}
