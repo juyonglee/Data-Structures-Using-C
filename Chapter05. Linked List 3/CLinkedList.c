@@ -79,7 +79,7 @@ int LNext(List* plist, Data* pdata) {
     return TRUE;
 }
 
-//  
+//  참조한 데이터 삭제 기능
 Data LRemove(List* plist) {
     Node* removeNode = plist->cur;
     Data rdata = removeNode->data;
@@ -96,4 +96,9 @@ Data LRemove(List* plist) {
     plist->cur = plist->before;
     (plist->numOfData)--;
     return rdata;
+}
+
+//  저장된 데이터의 개수 반환 기능
+int LCount(List* plist) {
+    return plist->numOfData;
 }
