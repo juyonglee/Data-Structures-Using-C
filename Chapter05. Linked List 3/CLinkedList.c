@@ -78,3 +78,22 @@ int LNext(List* plist, Data* pdata) {
     *pdata = plist->cur->data;
     return TRUE;
 }
+
+//  
+Data LRemove(List* plist) {
+    Node* removeNode = plist->cur;
+    Data rdata = removeNode->data;
+    //  예외 상황 추가
+    if(removeNode == plist->tail) {
+        if(removeNode->next == removeNode) {
+            plist->tail = NULL;
+        } else {
+            plist->tail = plist->before;   
+        }
+    }
+    plist->before->next = plist->cur->next;
+    free(removeNode);
+    plist->cur = plist->before;
+    (plist->numOfData)--;
+    return rdata;
+}
