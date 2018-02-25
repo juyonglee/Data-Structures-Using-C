@@ -20,7 +20,7 @@ void LInsertFront(List* plist, Data data) {
     //  첫 번째 노드인 경우
     if(plist->tail == NULL) {
         //  tail이 새로만든 노드를 가리키게 한다.
-        plist->tail == newNode;
+        plist->tail = newNode;
         //  새로운 노드가 자신을 가리키게 한다.
         newNode->next = newNode;
     } else {
