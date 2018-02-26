@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "ArrayBaseStack.h"
+#include "ArrayBasedStack.h"
 
 int main(void) {
     //  Stack의 생성 및 초기화
@@ -15,8 +15,9 @@ int main(void) {
     
     //  데이터 꺼내기
     while(!SIsEmpty(&stack)) {
-        printf("%d ", SPop(&list));
+        printf("%d ", SPop(&stack));
     }
+    printf("\n");
 
     return 0;
 }

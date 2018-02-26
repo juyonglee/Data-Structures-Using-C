@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "ArrayBasedStack.h"
 
 //  스택의 초기화 기능
