@@ -42,3 +42,13 @@ Data SPop(Stack* pstack) {
     //  삭제된 노드의 데이터 반환
     return data;
 }
+
+//  스택의 peek 기능
+Data SPeek(Stack* pstack) {
+    if(SIsEmpty(pstack)) {
+        puts("Stack Memory Error!");
+        exit(-1);
+    }
+    //  head가 가리키는 노드에 저장된 데이터 반환
+    return pstack->head->data;
+}
