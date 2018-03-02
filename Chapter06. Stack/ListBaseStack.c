@@ -25,3 +25,20 @@ void SPush(Stack* pstack, Data data) {
     //  head가 새로운 노드를 가리킨다.
     pstack->head = newNode;
 }
+
+//  스택의 pop 기능
+Data SPop(Stack* pstack) {
+    if(SIsEmpty(pstack)) {
+        puts("Stack Memory Error!");
+        exit(-1);
+    }
+    Node* nextNode = pstack->head->next;
+    //  삭제할 노드의 데이터를 저장
+    Data data = pstack->head->data;
+    //  head가 가리키는 노드 삭제
+    free(pstack->head);
+    //  head가 다음 노드를 가리킴
+    pstack->head = nextNode;
+    //  삭제된 노드의 데이터 반환
+    return data;
+}
