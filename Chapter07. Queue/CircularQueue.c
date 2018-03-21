@@ -21,3 +21,17 @@ int NextPosIdx(int pos) {
         return 0;
     return pos+1;
 }
+
+//  Queue에 데이터를 저장하는 기능
+void Enqueue(Queue *pq, Data data) {
+    //  Queue가 꽉 찬 경우
+    if(NextPosIdx(pq->rear) == pq->front) {
+        puts("저장공간이 부족해 Queue에 더 이상의 데이터를 저장할 수 없습니다.");
+        exit(-1);
+    }
+
+    //  데이터의 추가를 위해 rear을 한 칸 이동
+    pq->rear = NextPosIdx(pq->rear);
+    //  rear가 가리키는 곳에 데이터 저장
+    pq->queArr[pq->rear] = data;
+}
