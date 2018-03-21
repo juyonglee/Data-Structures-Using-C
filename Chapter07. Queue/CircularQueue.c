@@ -14,3 +14,10 @@ int QIsEmpty(Queue *pq) {
         return TRUE;
     return FALSE;
 }
+
+//  Queue의 다음 위치에 해당하는 인덱스 값을 반환하는 기능
+int NextPosIdx(int pos) {
+    if(pos+1 == QUE_LEN) 
+        return 0;
+    return pos+1;
+}
