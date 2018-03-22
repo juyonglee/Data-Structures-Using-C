@@ -47,3 +47,12 @@ Data Dequeue(Queue *pq) {
     //  front가 가리키는 데이터 반환
     return pq->queArr[pq->front];
 }
+
+//  Queue에 저장된 가장 앞선 데이터를 반환하는 기능
+Data QPeek(Queue *pq) {
+    if(QIsEmpty(pq)) {
+        puts("저장된 데이터가 존재하지 않습니다.");
+        exit(-1);
+    }
+    return pq->queArr[NextPosIdx(pq->front)];
+}
