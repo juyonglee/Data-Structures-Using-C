@@ -35,3 +35,15 @@ void Enqueue(Queue *pq, Data data) {
     //  rear가 가리키는 곳에 데이터 저장
     pq->queArr[pq->rear] = data;
 }
+
+//  Queue에 데이터를 반환하는 기능
+Data Dequeue(Queue *pq) {
+    if(QIsEmpty(pq)) {
+        puts("저장된 데이터가 존재하지 않아 데이터를 반환하는 동작을 수행할 수 없습니다.");
+        exit(-1);
+    }
+    //  front를 한 칸 이동
+    pq->front = NextPosIdx(pq->front);
+    //  front가 가리키는 데이터 반환
+    return pq->queArr[pq->front];
+}
