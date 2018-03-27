@@ -40,3 +40,12 @@ Data Dequeue(Queue* pq) {
     free(delNode);
     return retData;
 }
+
+//  Queue에 저장된 가장 앞선 데이터를 반환하는 기능
+Data QPeek(Queue* pq) {
+    if(QIsEmpty(pq)) {
+        puts("데이터가 존재하지 않아 Peek 동작을 수행할 수 없습니다.");
+        exit(-1);
+    }
+    return pq->front->data;
+}
