@@ -27,3 +27,16 @@ void Enqueue(Queue* pq, Data data) {
     pq->rear->next = newNode;
     pq->rear = newNode;
 }
+
+//  Queue에 데이터를 반환하는 기능
+Data Dequeue(Queue* pq) {
+    if(QIsEmpty(pq)) {
+        puts("데이터가 존재하지 않아 Dequeue 동작을 수행할 수 없습니다.");
+        exit(-1);
+    }
+    Node* delNode = pq->front;
+    Data retData = delNode->data;
+    pq->front = delNode->next;
+    free(delNode);
+    return retData;
+}
