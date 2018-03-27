@@ -22,7 +22,7 @@ void QueueInit(Queue* pq);
 int QIsEmpty(Queue* pq);
 
 void Enqueue(Queue* pq, Data data);
-void Dequeue(Queue* pq);
+Data Dequeue(Queue* pq);
 Data QPeek(Queue* pq);
 
 #endif
