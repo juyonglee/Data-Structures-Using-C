@@ -14,3 +14,16 @@ int QIsEmpty(Queue* pq) {
         return TRUE;
     return FALSE;
 }
+
+//  Queue에 데이터를 저장하는 기능
+void Enqueue(Queue* pq, Data data) {
+    Node* newNode = (Node*) malloc(sizeof(Node));
+    newNode->data = data;
+    newNode->next = NULL;
+    if(QIsEmpty(pq)) {
+        pq->front = newNode;
+        pq->rear = newNode;
+    }
+    pq->rear->next = newNode;
+    pq->rear = newNode;
+}
