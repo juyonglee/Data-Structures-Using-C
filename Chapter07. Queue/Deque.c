@@ -15,3 +15,21 @@ int DQIsEmpty(Deque * pdeq) {
         return TRUE;
     return FALSE;
 }
+
+//  Dequeue의 머리에 데이터를 저장하는 기능
+void DQAddFirst(Deque * pdeq, Data data) {
+    Node* newNode = (Node*) malloc(sizeof(Node));
+    newNode->data = data;
+    
+    newNode->next = pdeq->head;
+    
+    if(DQIsEmpty(pdeq)) {
+        pdeq->head = newNode;
+        pdeq->tail = newNode;
+    } else {
+        pdeq->head->prev = newNode;
+    }
+    
+    pdeq->head = newNode;
+    newNode->prev = NULL;
+}
