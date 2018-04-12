@@ -84,3 +84,8 @@ Data DQRemoveLast(Deque * pdeq) {
     
     return data;
 }
+
+//  Dequeue의 머리에 존재하는 데이터를 반환하는 기능
+Data DQGetFirst(Deque * pdeq) {
+    return pdeq->head->data;
+}
