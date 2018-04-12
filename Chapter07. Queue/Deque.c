@@ -33,3 +33,18 @@ void DQAddFirst(Deque * pdeq, Data data) {
     pdeq->head = newNode;
     newNode->prev = NULL;
 }
+
+//  Dequeue의 꼬리에 데이터를 저장하는 기능
+void DQAddLast(Deque * pdeq, Data data) {
+    Node* newNode = (Node*) malloc(sizeof(Node));
+    newNode->data = data;
+    newNode->prev = pdeq->tail;
+
+    if(DQIsEmpty(pdeq)) {
+        pdeq->head = newNode;
+    } else {
+        pdeq->tail->next = newNode;
+    }
+    newNode->next = NULL;
+    pdeq->tail = newNode;
+}
