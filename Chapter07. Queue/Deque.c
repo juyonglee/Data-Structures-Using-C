@@ -49,7 +49,7 @@ void DQAddLast(Deque * pdeq, Data data) {
     pdeq->tail = newNode;
 }
 
-//  Dequeue의 머리에 데이터를 삭제하는 기능
+//  Dequeue의 머리에 존재하는 데이터를 삭제하는 기능
 Data DQRemoveFirst(Deque * pdeq) {
     Node* removeNode = pdeq->head;
     Data removeData = removeNode->data;
@@ -66,4 +66,21 @@ Data DQRemoveFirst(Deque * pdeq) {
     free(removeNode);
     
     return removeData;
+}
+
+//  Dequeue의 꼬리에 존재하는 데이터를 삭제하는 기능
+Data DQRemoveLast(Deque * pdeq) {
+    Node* removeNode = pdeq->tail;
+    Data data = removeNode->data;
+
+    if(removeNode->prev == NULL) {
+        pdeq->head = NULL;
+    } else {
+        pdeq->tail = pdeq->tail->prev;
+        pdeq->tail->next = NULL;
+    }
+    
+    free(removeNode);
+    
+    return data;
 }
