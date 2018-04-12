@@ -89,3 +89,8 @@ Data DQRemoveLast(Deque * pdeq) {
 Data DQGetFirst(Deque * pdeq) {
     return pdeq->head->data;
 }
+
+//  Dequeue의 꼬리에 존재하는 데이터를 반환하는 기능
+Data DQGetLast(Deque * pdeq) {
+    return pdeq->tail->data;
+}
